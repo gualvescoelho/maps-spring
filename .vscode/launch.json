@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MapsApplication<maps>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.maps.maps.MapsApplication",
+            "projectName": "maps",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
