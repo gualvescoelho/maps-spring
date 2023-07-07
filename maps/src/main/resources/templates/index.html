@@ -1,33 +1,41 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {
-        "packages":["map"],
-        // Note: you will need to get a mapsApiKey for your project.
-        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-        "mapsApiKey": "IzaSyBosIiBvB2RxNEmFunciANWhcqsi-U4mrI"
-      });
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Lat', 'Long', 'Name'],
-          [19.0760,  72.8777, 'Mumbai'],
-          [18.5204, 73.8567, 'Pune'],
-          [19.1176, 72.9060, 'Powai'],
-        ]);
+<head>
+    <title>Cadastrar Compromisso</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBosIiBvB2RxNEmFunciANWhcqsi-U4mrI&libraries=places"></script>
+</head>
+<body>
+    <h1>Cadastrar Compromisso</h1>
+    <form action="/tempo-viagem" method="get">
 
-        var map = new google.visualization.Map(document.getElementById('map_div'));
-        map.draw(data, {
-          showTooltip: true,
-          showInfoWindow: true
-        });
-      }
+      <label for="titulo">Título do Compromisso:</label>
+      <input type="text" id="titulo" name="titulo" placeholder="Título do Compromisso">
+        <br><br>
+        <label for="origem">Origem:</label>
+        <input type="text" id="origem" name="origem" placeholder="Origem" autocomplete="off">
+        <br><br>
+        <label for="destino">Destino:</label>
+        <input type="text" id="destino" name="destino" placeholder="Destino" autocomplete="off">
+        <br><br>
+        <label for="hora">Hora:</label>
+        <input type="number" id="hora" name="hora" min="0" max="23" placeholder="Hora">
+        <br><br>
+        <label for="minuto">Minuto:</label>
+        <input type="number" id="minuto" name="minuto" min="0" max="59" placeholder="Minuto">
+        <br><br>
+        <button type="submit">Salvar compromisso</button>
+    </form>
 
+    <script>
+        function enableAutocomplete() {
+            const origemInput = document.getElementById('origem');
+            const destinoInput = document.getElementById('destino');
+
+            const autocompleteOrigem = new google.maps.places.Autocomplete(origemInput);
+            const autocompleteDestino = new google.maps.places.Autocomplete(destinoInput);
+        }
+
+        window.onload = enableAutocomplete;
     </script>
-  </head>
-
-  <body>
-    <div id="map_div" style="width: 800px; height: 700px"></div>
-  </body>
+</body>
 </html>
