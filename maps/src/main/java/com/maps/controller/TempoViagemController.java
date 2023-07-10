@@ -1,4 +1,4 @@
-package com.maps.maps.controller;
+package com.maps.controller;
 
 import java.io.Console;
 
